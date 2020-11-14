@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SmsListModel {
+struct SmsListModel: Codable {
     let list: Array<SmsModel>
     
     func appending(sms: SmsModel) -> SmsListModel {

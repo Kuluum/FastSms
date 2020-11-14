@@ -7,20 +7,37 @@
 
 import Foundation
 
-class SmsListModelProvider {
-    var listModel: SmsListModel?
+protocol SmsListModelProvider {
+    var listModel: SmsListModel { get }
+    
+    func append(_ smsModel: SmsModel)
+}
+
+class SmsListModelProviderUserDefault: SmsListModelProvider {
+    var listModel: SmsListModel
+    
+    private let encoder = JSONEncoder()
+    private let decoder = JSONDecoder()
+    private let defaults = UserDefaults.standard
+    
+    init() {
+        if let savedList = defaults.object(forKey: "SmsListModel") as? Data,
+        let loadedList = try? decoder.decode(SmsListModel.self, from: savedList) {
+            listModel = loadedList
+            return
+        }
+        
+        listModel = SmsListModel(list: Array<SmsModel>())
+    }
     
     func append(_ smsModel: SmsModel) {
-        listModel = listModel?.appending(sms: smsModel)
-    }
-    
-    func testSetup() {
-        let m1 = SmsModel(phoneNumber: "1", smsText: "text1")
-        let m2 = SmsModel(phoneNumber: "2", smsText: "text2")
-        let m3 = SmsModel(phoneNumber: "3", smsText: "text3")
-        let list = SmsListModel(list: [m1, m2, m3])
+        listModel = listModel.appending(sms: smsModel)
         
-        self.listModel = list
-        
+        if let encoded = try? encoder.encode(listModel) {
+            defaults.set(encoded, forKey: "SmsListModel")
+        } else {
+            print("Encode failed")
+        }
     }
+        
 }

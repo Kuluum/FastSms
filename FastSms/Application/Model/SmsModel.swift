@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SmsModel {
+struct SmsModel: Codable {
     let phoneNumber: String
     let smsText: String
 }

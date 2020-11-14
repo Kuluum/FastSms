@@ -25,9 +25,7 @@ final class SmsListCoordinator: BaseCoordinator {
     
     private func runStartFlow() {
         let smsTableVc = SmsTableViewController(style: .grouped)
-        if let listModel = smsListProvider.listModel {
-            smsTableVc.config(with: listModel)
-        }
+        smsTableVc.config(with: smsListProvider.listModel)
      
         smsTableVc.onAddSms = { [weak self] in
             self?.showAddSms()
@@ -57,9 +55,7 @@ final class SmsListCoordinator: BaseCoordinator {
     }
     
     private func reconfigSmsTable() {
-        if let listModel = smsListProvider.listModel {
-            self.smsTableControlelr?.config(with: listModel)
-        }
+        self.smsTableControlelr?.config(with: self.smsListProvider.listModel)
     }
     
 }

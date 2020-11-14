@@ -16,8 +16,7 @@ final class ApplicationCoordinator: BaseCoordinator {
     
     private func runStartFlow() {
         
-        let provider = SmsListModelProvider()
-        provider.testSetup()
+        let provider: SmsListModelProvider = SmsListModelProviderUserDefault()
         
         let coordinator = SmsListCoordinator(router: router, provider: provider)
         self.addDependency(coordinator)
