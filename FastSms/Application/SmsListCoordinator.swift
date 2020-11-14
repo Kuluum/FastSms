@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import MessageUI
 
-final class SmsListCoordinator: BaseCoordinator {
+@objc
+final class SmsListCoordinator: BaseCoordinator, MFMessageComposeViewControllerDelegate {
     
     private let router: Router
     
@@ -31,6 +33,10 @@ final class SmsListCoordinator: BaseCoordinator {
             self?.showAddSms()
         }
         
+        smsTableVc.onsSendClick = { [weak self] (smsModel) in
+            self?.sendText(phonenumber: smsModel.phoneNumber, text: smsModel.smsText)
+        }
+        
         router.setRootModule(smsTableVc, hideBar: true)
         self.smsTableControlelr = smsTableVc
     }
@@ -47,6 +53,7 @@ final class SmsListCoordinator: BaseCoordinator {
             self?.reconfigSmsTable()
             router?.dismissModule()
         }
+    
         
         // TODO: Looks like router cant make modal+navigation+moDalstyle itself, maybe add such medod will be ok.
         let nav = UINavigationController(rootViewController: vc)
@@ -58,4 +65,24 @@ final class SmsListCoordinator: BaseCoordinator {
         self.smsTableControlelr?.config(with: self.smsListProvider.listModel)
     }
     
+    func sendText(phonenumber: String, text: String) {
+        if (MFMessageComposeViewController.canSendText()) {
+            let controller = MFMessageComposeViewController()
+            controller.body = "Message Body"
+            controller.recipients = [phonenumber]
+            controller.messageComposeDelegate = self
+            
+            router.present(controller)
+        } else {
+            let alert = UIAlertController(title: "Cant send sms", message: "Meh(", preferredStyle: .alert)
+
+            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+
+            router.present(alert)
+        }
+    }
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController!, didFinishWith result: MessageComposeResult) {
+        router.dismissModule()
+    }
 }

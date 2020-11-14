@@ -8,10 +8,13 @@
 import UIKit
 import SnapKit
 
+
 class SmsTableViewController: UITableViewController {
 
     var model: SmsListModel?
     var onAddSms: (()->Void)?
+    var onsSendClick: ((_ smsModel: SmsModel)->Void)?
+    
     let addButton = UIButton(type: .contactAdd)
     
     override func viewDidLoad() {
@@ -59,6 +62,9 @@ class SmsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        if let smsModel = model?.list[indexPath.row] {
+            onsSendClick?(smsModel)
+        }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -67,7 +73,7 @@ class SmsTableViewController: UITableViewController {
     
     @objc func btnPress() {
         onAddSms?()
-
     }
+
 }
 
