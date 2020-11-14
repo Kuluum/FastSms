@@ -10,8 +10,16 @@
 		F729F48F255FEAA8007916BE /* SmsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F729F48E255FEAA8007916BE /* SmsListModel.swift */; };
 		F729F491255FEAB8007916BE /* SmsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F729F490255FEAB8007916BE /* SmsModel.swift */; };
 		F729F493255FEB44007916BE /* SmsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F729F492255FEB44007916BE /* SmsCell.swift */; };
+		F7A015382560024800F7DDE4 /* AddSmsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A015372560024800F7DDE4 /* AddSmsVC.swift */; };
+		F7A0153A2560041700F7DDE4 /* AddSmsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A015392560041700F7DDE4 /* AddSmsView.swift */; };
+		F7A0153C2560121800F7DDE4 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A0153B2560121800F7DDE4 /* BaseViewController.swift */; };
+		F7A0153E256016B200F7DDE4 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A0153D256016B200F7DDE4 /* Coordinator.swift */; };
+		F7A015402560180C00F7DDE4 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A0153F2560180C00F7DDE4 /* ApplicationCoordinator.swift */; };
+		F7A015422560186600F7DDE4 /* SmsListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A015412560186600F7DDE4 /* SmsListCoordinator.swift */; };
+		F7A015442560196500F7DDE4 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A015432560196500F7DDE4 /* Router.swift */; };
+		F7A01546256024EB00F7DDE4 /* SmsListModelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A01545256024EB00F7DDE4 /* SmsListModelProvider.swift */; };
 		F7DBD202255C9CFA0057A0E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DBD201255C9CFA0057A0E8 /* AppDelegate.swift */; };
-		F7DBD206255C9CFA0057A0E8 /* FastSMSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DBD205255C9CFA0057A0E8 /* FastSMSTableViewController.swift */; };
+		F7DBD206255C9CFA0057A0E8 /* SmsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DBD205255C9CFA0057A0E8 /* SmsTableViewController.swift */; };
 		F7DBD20B255C9CFB0057A0E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7DBD20A255C9CFB0057A0E8 /* Assets.xcassets */; };
 		F7DBD20E255C9CFB0057A0E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7DBD20C255C9CFB0057A0E8 /* LaunchScreen.storyboard */; };
 		F7DBD219255C9CFB0057A0E8 /* FastSmsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DBD218255C9CFB0057A0E8 /* FastSmsTests.swift */; };
@@ -40,9 +48,17 @@
 		F729F48E255FEAA8007916BE /* SmsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmsListModel.swift; sourceTree = "<group>"; };
 		F729F490255FEAB8007916BE /* SmsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmsModel.swift; sourceTree = "<group>"; };
 		F729F492255FEB44007916BE /* SmsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmsCell.swift; sourceTree = "<group>"; };
+		F7A015372560024800F7DDE4 /* AddSmsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSmsVC.swift; sourceTree = "<group>"; };
+		F7A015392560041700F7DDE4 /* AddSmsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSmsView.swift; sourceTree = "<group>"; };
+		F7A0153B2560121800F7DDE4 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		F7A0153D256016B200F7DDE4 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		F7A0153F2560180C00F7DDE4 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		F7A015412560186600F7DDE4 /* SmsListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmsListCoordinator.swift; sourceTree = "<group>"; };
+		F7A015432560196500F7DDE4 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		F7A01545256024EB00F7DDE4 /* SmsListModelProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmsListModelProvider.swift; sourceTree = "<group>"; };
 		F7DBD1FE255C9CFA0057A0E8 /* FastSms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FastSms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7DBD201255C9CFA0057A0E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F7DBD205255C9CFA0057A0E8 /* FastSMSTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastSMSTableViewController.swift; sourceTree = "<group>"; };
+		F7DBD205255C9CFA0057A0E8 /* SmsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmsTableViewController.swift; sourceTree = "<group>"; };
 		F7DBD20A255C9CFB0057A0E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F7DBD20D255C9CFB0057A0E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F7DBD20F255C9CFB0057A0E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -80,6 +96,91 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F7A0152C255FFC1800F7DDE4 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				F7DBD201255C9CFA0057A0E8 /* AppDelegate.swift */,
+				F7A015332560015000F7DDE4 /* Model */,
+				F7A0152D255FFC2500F7DDE4 /* UI */,
+				F7A0153B2560121800F7DDE4 /* BaseViewController.swift */,
+				F7A0153D256016B200F7DDE4 /* Coordinator.swift */,
+				F7A015432560196500F7DDE4 /* Router.swift */,
+				F7A0153F2560180C00F7DDE4 /* ApplicationCoordinator.swift */,
+				F7A015412560186600F7DDE4 /* SmsListCoordinator.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		F7A0152D255FFC2500F7DDE4 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				F7A0152E255FFC2E00F7DDE4 /* Screens */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		F7A0152E255FFC2E00F7DDE4 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				F7A015362560023800F7DDE4 /* AddSms */,
+				F7A0152F255FFC3900F7DDE4 /* SmsTable */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		F7A0152F255FFC3900F7DDE4 /* SmsTable */ = {
+			isa = PBXGroup;
+			children = (
+				F7A01532256000BA00F7DDE4 /* Cells */,
+				F7DBD205255C9CFA0057A0E8 /* SmsTableViewController.swift */,
+			);
+			path = SmsTable;
+			sourceTree = "<group>";
+		};
+		F7A01532256000BA00F7DDE4 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F729F492255FEB44007916BE /* SmsCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		F7A015332560015000F7DDE4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F729F48E255FEAA8007916BE /* SmsListModel.swift */,
+				F729F490255FEAB8007916BE /* SmsModel.swift */,
+				F7A01545256024EB00F7DDE4 /* SmsListModelProvider.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F7A015342560018800F7DDE4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F7DBD20A255C9CFB0057A0E8 /* Assets.xcassets */,
+				F7DBD20C255C9CFB0057A0E8 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F7A015352560019600F7DDE4 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				F7DBD20F255C9CFB0057A0E8 /* Info.plist */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		F7A015362560023800F7DDE4 /* AddSms */ = {
+			isa = PBXGroup;
+			children = (
+				F7A015372560024800F7DDE4 /* AddSmsVC.swift */,
+				F7A015392560041700F7DDE4 /* AddSmsView.swift */,
+			);
+			path = AddSms;
+			sourceTree = "<group>";
+		};
 		F7DBD1F5255C9CFA0057A0E8 = {
 			isa = PBXGroup;
 			children = (
@@ -103,14 +204,9 @@
 		F7DBD200255C9CFA0057A0E8 /* FastSms */ = {
 			isa = PBXGroup;
 			children = (
-				F7DBD201255C9CFA0057A0E8 /* AppDelegate.swift */,
-				F7DBD205255C9CFA0057A0E8 /* FastSMSTableViewController.swift */,
-				F7DBD20A255C9CFB0057A0E8 /* Assets.xcassets */,
-				F7DBD20C255C9CFB0057A0E8 /* LaunchScreen.storyboard */,
-				F7DBD20F255C9CFB0057A0E8 /* Info.plist */,
-				F729F48E255FEAA8007916BE /* SmsListModel.swift */,
-				F729F490255FEAB8007916BE /* SmsModel.swift */,
-				F729F492255FEB44007916BE /* SmsCell.swift */,
+				F7A015352560019600F7DDE4 /* Configuration */,
+				F7A015342560018800F7DDE4 /* Resources */,
+				F7A0152C255FFC1800F7DDE4 /* Application */,
 			);
 			path = FastSms;
 			sourceTree = "<group>";
@@ -268,11 +364,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7A0153A2560041700F7DDE4 /* AddSmsView.swift in Sources */,
 				F729F48F255FEAA8007916BE /* SmsListModel.swift in Sources */,
 				F729F491255FEAB8007916BE /* SmsModel.swift in Sources */,
-				F7DBD206255C9CFA0057A0E8 /* FastSMSTableViewController.swift in Sources */,
+				F7DBD206255C9CFA0057A0E8 /* SmsTableViewController.swift in Sources */,
+				F7A015442560196500F7DDE4 /* Router.swift in Sources */,
+				F7A01546256024EB00F7DDE4 /* SmsListModelProvider.swift in Sources */,
 				F729F493255FEB44007916BE /* SmsCell.swift in Sources */,
+				F7A015402560180C00F7DDE4 /* ApplicationCoordinator.swift in Sources */,
+				F7A0153C2560121800F7DDE4 /* BaseViewController.swift in Sources */,
+				F7A015382560024800F7DDE4 /* AddSmsVC.swift in Sources */,
+				F7A015422560186600F7DDE4 /* SmsListCoordinator.swift in Sources */,
 				F7DBD202255C9CFA0057A0E8 /* AppDelegate.swift in Sources */,
+				F7A0153E256016B200F7DDE4 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,7 +545,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = FastSms/Info.plist;
+				INFOPLIST_FILE = FastSms/Configuration/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -459,7 +563,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = FastSms/Info.plist;
+				INFOPLIST_FILE = FastSms/Configuration/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

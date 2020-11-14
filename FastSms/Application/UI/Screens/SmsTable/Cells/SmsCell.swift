@@ -11,21 +11,22 @@ import SnapKit
 
 class SmsCell: UITableViewCell {
     
+    var model: SmsModel?
+    
     let smsTextLabel = UILabel()
     let phoneNumberLabel = UILabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        initUi()
+        setupUI()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        initUi()
+        setupUI()
      }
     
-    func initUi() {
-        
+    func setupUI() {
         self.contentView.addSubview(smsTextLabel)
         self.contentView.addSubview(phoneNumberLabel)
         
@@ -41,7 +42,6 @@ class SmsCell: UITableViewCell {
         }
     }
     
-    var model: SmsModel?
     
     func config(with model: SmsModel) {
         self.model = model

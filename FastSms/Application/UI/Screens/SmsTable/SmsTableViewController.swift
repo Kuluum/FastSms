@@ -8,10 +8,10 @@
 import UIKit
 import SnapKit
 
-class FastSMSTableViewController: UITableViewController {
+class SmsTableViewController: UITableViewController {
 
     var model: SmsListModel?
-    
+    var onAddSms: (()->Void)?
     let addButton = UIButton(type: .contactAdd)
     
     override func viewDidLoad() {
@@ -19,6 +19,10 @@ class FastSMSTableViewController: UITableViewController {
         
         tableView.register(SmsCell.self, forCellReuseIdentifier: "SmsCell")
         
+        setupUI()
+    }
+    
+    func setupUI() {
         tableView.rowHeight = 70
         tableView.estimatedRowHeight = 70
         
@@ -26,16 +30,15 @@ class FastSMSTableViewController: UITableViewController {
         addButton.snp.makeConstraints { (make) -> Void in
             make.bottom.right.equalTo(tableView.safeAreaLayoutGuide).inset(20)
         }
+        
+        addButton.addTarget(self, action: #selector(btnPress), for: .touchUpInside)
     }
-
+    
     func config(with model:SmsListModel) {
         self.model = model
         tableView.reloadData()
     }
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
+
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return model?.list.count ?? 0
@@ -50,11 +53,21 @@ class FastSMSTableViewController: UITableViewController {
         
         let cell = UITableViewCell()
         cell.textLabel?.text = "wrong cell"
+        cell.backgroundColor = .red
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    @objc func btnPress() {
+        onAddSms?()
+
     }
 }
 

@@ -9,4 +9,9 @@ import Foundation
 
 struct SmsListModel {
     let list: Array<SmsModel>
+    
+    func appending(sms: SmsModel) -> SmsListModel {
+        let newList = list + [sms]
+        return SmsListModel(list: newList)
+    }
 }
