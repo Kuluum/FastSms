@@ -11,6 +11,7 @@ protocol SmsListModelProvider {
     var listModel: SmsListModel { get }
     
     func append(_ smsModel: SmsModel)
+    func delete(at index: Int)
 }
 
 class SmsListModelProviderUserDefault: SmsListModelProvider {
@@ -32,6 +33,16 @@ class SmsListModelProviderUserDefault: SmsListModelProvider {
     
     func append(_ smsModel: SmsModel) {
         listModel = listModel.appending(sms: smsModel)
+        
+        if let encoded = try? encoder.encode(listModel) {
+            defaults.set(encoded, forKey: "SmsListModel")
+        } else {
+            print("Encode failed")
+        }
+    }
+    
+    func delete(at index: Int) {
+        listModel = listModel.deleting(at: index)
         
         if let encoded = try? encoder.encode(listModel) {
             defaults.set(encoded, forKey: "SmsListModel")

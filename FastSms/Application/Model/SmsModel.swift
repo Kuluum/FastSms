@@ -9,5 +9,6 @@ import Foundation
 
 struct SmsModel: Codable {
     let phoneNumber: String
+    let name: String
     let smsText: String
 }

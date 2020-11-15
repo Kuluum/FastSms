@@ -10,7 +10,8 @@ import UIKit
 final class AddSmsVC<View: AddSmsView>: BaseViewController<View> {
     
     var onCancel: (()->Void)?
-    var onDone: ((_ phoneNumber: String, _ smsText: String) -> Void)?
+    var onDone: ((_ phoneNumber: String, _ name: String, _ smsText: String) -> Void)?
+    var onOpenContact: (()->Void)?
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -31,15 +32,22 @@ final class AddSmsVC<View: AddSmsView>: BaseViewController<View> {
         addButton.title = "Add"
         navigationItem.leftBarButtonItem = cancelButton
         navigationItem.rightBarButtonItem = addButton
+        
+        rootView.onContactsPress = onOpenContact
     }
     
-    @objc func cancellPressed() {
+    public func fill(phone: String, name: String) {
+        rootView.fill(phoneNumber: phone, name: name)
+    }
+    
+    @objc private func cancellPressed() {
         onCancel?()
     }
     
-    @objc func donePressed() {
+    @objc private func donePressed() {
         let phoneNumber = rootView.phoneNumber()
         let smsText = rootView.smsText()
-        onDone?(phoneNumber, smsText)
+        let name = rootView.name()
+        onDone?(phoneNumber, name, smsText)
     }
 }

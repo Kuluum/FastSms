@@ -14,4 +14,10 @@ struct SmsListModel: Codable {
         let newList = list + [sms]
         return SmsListModel(list: newList)
     }
+    
+    func deleting(at index: Int) -> SmsListModel {
+        var newList = list
+        newList.remove(at: index)
+        return SmsListModel(list: newList)
+    }
 }

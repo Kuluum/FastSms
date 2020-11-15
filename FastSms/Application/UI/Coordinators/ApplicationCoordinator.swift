@@ -2,12 +2,10 @@ import Foundation
 
 final class ApplicationCoordinator: BaseCoordinator {
     
-//    private let coordinatorFactory: CoordinatorFactory
     private let router: Router
     
-    init(router: Router/*, coordinatorFactory: CoordinatorFactory*/) {
+    init(router: Router) {
         self.router = router
-//        self.coordinatorFactory = coordinatorFactory
     }
     
     override func start() {

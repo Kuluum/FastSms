@@ -11,11 +11,14 @@ import SnapKit
 
 class SmsTableViewController: UITableViewController {
 
-    var model: SmsListModel?
-    var onAddSms: (()->Void)?
-    var onsSendClick: ((_ smsModel: SmsModel)->Void)?
+    let addButton = UIButton(type: .custom)
     
-    let addButton = UIButton(type: .contactAdd)
+    var model: SmsListModel?
+    
+    var onAddSms: (()->Void)?
+    var onDeleteSms: ((_ deleteIndex: Int)->Void)?
+    var onSendClick: ((_ smsModel: SmsModel)->Void)?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +33,10 @@ class SmsTableViewController: UITableViewController {
         tableView.estimatedRowHeight = 70
         
         tableView.addSubview(addButton)
-        addButton.snp.makeConstraints { (make) -> Void in
-            make.bottom.right.equalTo(tableView.safeAreaLayoutGuide).inset(20)
+        addButton.setBackgroundImage(UIImage(named: "add-icon"), for: .normal)
+        addButton.snp.makeConstraints {
+            $0.bottom.right.equalTo(tableView.safeAreaLayoutGuide).inset(20)
+            $0.height.width.equalTo(40)
         }
         
         addButton.addTarget(self, action: #selector(btnPress), for: .touchUpInside)
@@ -63,7 +68,7 @@ class SmsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if let smsModel = model?.list[indexPath.row] {
-            onsSendClick?(smsModel)
+            onSendClick?(smsModel)
         }
     }
     
@@ -77,3 +82,16 @@ class SmsTableViewController: UITableViewController {
 
 }
 
+// Table editing
+extension SmsTableViewController {
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            onDeleteSms?(indexPath.row)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+}
